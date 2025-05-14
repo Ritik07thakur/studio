@@ -122,7 +122,7 @@ export function Chatbot() {
         <Button
           variant="default"
           size="icon"
-          className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-xl z-50 bg-primary hover:bg-primary/90 text-primary-foreground"
+          className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-xl z-[110] bg-primary hover:bg-primary/90 text-primary-foreground"
           onClick={() => setIsOpen(true)}
           aria-label="Open chat"
         >
@@ -132,7 +132,7 @@ export function Chatbot() {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-0 right-0 sm:bottom-6 sm:right-6 w-full sm:w-96 h-[70vh] sm:h-[calc(100vh-6rem)] max-h-[600px] bg-card border border-border shadow-2xl rounded-t-lg sm:rounded-lg flex flex-col z-50 overflow-hidden animate-in fade-in-0 slide-in-from-bottom-5 duration-300">
+        <div className="fixed bottom-0 right-0 sm:bottom-6 sm:right-6 w-full sm:w-96 h-[70vh] sm:h-[calc(100vh-6rem)] max-h-[600px] bg-card border border-border shadow-2xl rounded-t-lg sm:rounded-lg flex flex-col z-[110] overflow-hidden animate-in fade-in-0 slide-in-from-bottom-5 duration-300">
           {/* Header */}
           <div className="flex items-center justify-between p-3 border-b bg-primary text-primary-foreground">
             <h3 className="font-semibold text-lg flex items-center">
