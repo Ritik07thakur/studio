@@ -64,21 +64,21 @@ export function ContactSection() {
                 <Mail className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="font-semibold text-primary">Email Us</h4>
-                  <a href="mailto:contact@vistra.com" className="hover:text-accent transition-colors">contact@vistra.com</a>
+                  <a href="mailto:yashuiithakur07@gmail.com" className="hover:text-accent transition-colors">yashuiithakur07@gmail.com</a>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
                 <Phone className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="font-semibold text-primary">Call Us</h4>
-                  <a href="tel:+911234567890" className="hover:text-accent transition-colors">+91 123 456 7890</a> (Placeholder)
+                  <a href="tel:+918262527261" className="hover:text-accent transition-colors">+91 8262527261</a>
                 </div>
               </div>
               <div className="flex items-start space-x-3">
                 <MapPinIcon className="h-6 w-6 text-accent mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="font-semibold text-primary">Our Base</h4>
-                  <p>Near Churdhar Base Camp, Himachal Pradesh, India</p> (Placeholder)
+                  <p>Near Churdhar Base Camp, Himachal Pradesh, India</p>
                 </div>
               </div>
             </CardContent>
