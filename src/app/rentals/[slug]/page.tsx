@@ -43,12 +43,6 @@ const RentalDetailPage: NextPage = () => {
         {/* Details & Booking Form Section */}
         <div>
           <h1 className="text-3xl lg:text-4xl font-bold text-primary mb-3">{rentalItem.name}</h1>
-          {rentalItem.price && (
-            <div className="flex items-center text-accent text-xl font-semibold mb-4">
-              <Tag className="h-5 w-5 mr-2" />
-              <span>{rentalItem.price}</span>
-            </div>
-          )}
           <CardDescription className="text-lg text-foreground/80 mb-6 leading-relaxed">
             {rentalItem.longDescription || rentalItem.description}
           </CardDescription>

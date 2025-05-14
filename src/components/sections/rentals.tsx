@@ -71,7 +71,6 @@ const RentalCardItem = ({ item }: { item: RentalItem }) => (
         <TypeIcon type={item.type} />
         <span>{item.type}</span>
       </div>
-      {item.price && <p className="text-sm font-semibold text-accent pt-1">{item.price}</p>}
     </CardHeader>
     <CardContent className="flex-grow">
       <CardDescription>{item.description}</CardDescription>
