@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from 'next/link';
@@ -9,10 +10,11 @@ import { cn } from '@/lib/utils';
 
 const navItems = [
   { href: '/#hero', label: 'Home' },
-  { href: '/#rentals', label: 'Rentals' },
   { href: '/#about', label: 'About' },
-  { href: '/#map', label: 'Map' },
+  { href: '/#rentals', label: 'Rentals' },
   { href: '/#reviews', label: 'Reviews' },
+  { href: '/#map', label: 'Map' },
+  { href: '/#contact', label: 'Contact' }, // Added Contact link
 ];
 
 export function Navbar() {
@@ -21,9 +23,9 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/#hero" className="flex items-center space-x-2 text-primary hover:text-primary/80 transition-colors" aria-label="Churdhar Explorer Home">
+        <Link href="/#hero" className="flex items-center space-x-2 text-primary hover:text-primary/80 transition-colors" aria-label="Vistra Home">
           <Mountain className="h-7 w-7" />
-          <span className="text-xl font-bold tracking-tight">Churdhar Explorer</span>
+          <span className="text-xl font-bold tracking-tight">Vistra</span>
         </Link>
 
         <nav className="hidden md:flex items-center space-x-6">
@@ -49,7 +51,7 @@ export function Navbar() {
               <div className="flex flex-col space-y-6">
                 <Link href="/#hero" className="flex items-center space-x-2 text-primary" onClick={() => setIsMobileMenuOpen(false)}>
                   <Mountain className="h-7 w-7" />
-                  <span className="text-xl font-bold">Churdhar Explorer</span>
+                  <span className="text-xl font-bold">Vistra</span>
                 </Link>
                 <nav className="flex flex-col space-y-4">
                   {navItems.map((item) => (

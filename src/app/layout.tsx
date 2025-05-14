@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import './globals.css';
@@ -7,8 +8,8 @@ import { Toaster } from '@/components/ui/toaster';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
-  title: 'Churdhar Explorer - Your Guide to Churdhar Trek',
-  description: 'Explore Churdhar: find rentals, travel information, maps, and reviews for your adventure.',
+  title: 'Vistra - Your Guide to Churdhar Trek',
+  description: 'Vistra: Explore Churdhar - find rentals, travel information, maps, contact, and reviews for your adventure.',
 };
 
 export default function RootLayout({

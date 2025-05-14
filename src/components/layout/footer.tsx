@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Copyright } from 'lucide-react';
 
@@ -9,7 +10,7 @@ export function Footer() {
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-4 sm:px-6 lg:px-8 text-sm text-muted-foreground">
         <div className="flex items-center space-x-1 mb-4 md:mb-0">
           <Copyright className="h-4 w-4" />
-          <span>{currentYear} Churdhar Explorer. All rights reserved.</span>
+          <span>{currentYear} Vistra. All rights reserved.</span>
         </div>
         <div className="flex items-center space-x-4">
           {/* <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
