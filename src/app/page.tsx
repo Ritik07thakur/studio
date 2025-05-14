@@ -10,9 +10,9 @@ export default function HomePage() {
   return (
     <>
       <HeroSlider />
+      <RentalsSection />
       <AboutSection />
       <TrekTimelineSection />
-      <RentalsSection />
       <MapSection />
       <ReviewsSection />
     </>
