@@ -1,6 +1,8 @@
+
 "use client";
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -8,25 +10,46 @@ import { cn } from '@/lib/utils';
 
 const slides = [
   {
-    src: 'https://placehold.co/1200x600.png',
-    alt: 'Panoramic view of Churdhar peak',
-    hint: 'mountain landscape',
-    title: 'Discover the Majesty of Churdhar',
-    subtitle: 'Embark on an unforgettable journey to the serene peaks.',
+    src: 'https://www.adotrip.com/public/images/areas/5cc0294956a00-Churdhar%20Sightseeing.jpg',
+    alt: 'Breathtaking Churdhar Peak vista',
+    hint: 'mountain peak',
+    title: 'Welcome to Churdhar',
+    subtitle: 'Discover the Heights!',
   },
   {
-    src: 'https://placehold.co/1200x600.png',
-    alt: 'Lush green trails in Churdhar forest',
-    hint: 'forest trail',
-    title: 'Trek Through Enchanting Forests',
-    subtitle: 'Experience the rich biodiversity and tranquil paths.',
+    src: 'https://www.himalayanhikers.in/wp-content/uploads/2019/11/churdhar-trek-820x410.jpg',
+    alt: 'Churdhar trek trail in winter',
+    hint: 'snowy trail',
+    title: 'Trek to Majestic Peaks',
+    subtitle: 'An adventure of a lifetime awaits.',
   },
   {
-    src: 'https://placehold.co/1200x600.png',
-    alt: 'Churdhar temple at sunrise',
-    hint: 'temple sunrise',
-    title: 'Spiritual Serenity Awaits',
-    subtitle: 'Visit ancient temples and find peace amidst nature.',
+    src: 'https://www.beingpahadia.com/wp-content/uploads/2020/12/Breathtaking-Views-on-way-to-Churdhar-min.jpg',
+    alt: 'Panoramic view from Churdhar trail',
+    hint: 'mountain panorama',
+    title: 'Unforgettable Panoramas',
+    subtitle: "Witness nature's grandeur at its finest.",
+  },
+  {
+    src: 'https://ik.imagekit.io/shortpedia/Voices/wp-content/uploads/2021/10/churdhar-1200x900@adotrip.jpg',
+    alt: 'Churdhar landscape with vibrant sky',
+    hint: 'landscape sky',
+    title: 'Vibrant Skies, Serene Trails',
+    subtitle: 'Explore the beauty of the Himalayas.',
+  },
+  {
+    src: 'https://vagabondholidays.com/wp-content/uploads/2022/08/How-Long-Is-Churdhar-Trek-Vagabond-Holidays-1-768x473.jpg',
+    alt: 'Trekker on the path to Churdhar',
+    hint: 'trekker path',
+    title: 'Your Journey Starts Here',
+    subtitle: 'Gear up for an epic Churdhar trek.',
+  },
+  {
+    src: 'https://thumbs.dreamstime.com/b/india-himachal-pradesh-churdhar-peak-sirmour-neutral-picture-170211522.jpg',
+    alt: 'Churdhar peak in Sirmour district',
+    hint: 'peak sirmour',
+    title: 'The Crown of Sirmour',
+    subtitle: 'Experience the highest peak of the outer Himalayas.',
   },
 ];
 
@@ -42,7 +65,7 @@ export function HeroSlider() {
   };
 
   useEffect(() => {
-    const timer = setTimeout(nextSlide, 5000); // Auto-play every 5 seconds
+    const timer = setTimeout(nextSlide, 3000); // Auto-play every 3 seconds
     return () => clearTimeout(timer);
   }, [currentIndex, nextSlide]);
 
@@ -62,16 +85,21 @@ export function HeroSlider() {
             data-ai-hint={slide.hint}
             fill
             style={{ objectFit: 'cover' }}
-            priority={index === 0} // Prioritize loading the first image
+            priority={index === 0} 
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
           />
-          <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center text-center p-4">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-lg">
+          <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-center p-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 drop-shadow-lg animate-fade-in-down">
               {slide.title}
             </h1>
-            <p className="text-lg md:text-xl lg:text-2xl text-gray-200 max-w-2xl drop-shadow-md">
+            <p className="text-lg md:text-xl lg:text-2xl text-gray-200 max-w-2xl mb-8 drop-shadow-md animate-fade-in-up">
               {slide.subtitle}
             </p>
+            <Link href="/#about" passHref>
+              <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground text-lg px-8 py-3 animate-fade-in-up animation-delay-300">
+                Explore Now
+              </Button>
+            </Link>
           </div>
         </div>
       ))}
@@ -101,13 +129,45 @@ export function HeroSlider() {
             key={index}
             onClick={() => setCurrentIndex(index)}
             className={cn(
-              "h-2 w-2 rounded-full transition-all duration-300",
-              currentIndex === index ? "bg-white w-4" : "bg-white/50 hover:bg-white/75"
+              "h-2.5 w-2.5 rounded-full transition-all duration-300",
+              currentIndex === index ? "bg-white w-6" : "bg-white/50 hover:bg-white/75"
             )}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
+       {/* Basic CSS for animations - consider adding to globals.css if not already there or using Tailwind animation utilities */}
+      <style jsx global>{`
+        .animate-fade-in-down {
+          animation: fadeInDown 0.8s ease-out forwards;
+        }
+        .animate-fade-in-up {
+          animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .animation-delay-300 {
+          animation-delay: 0.3s;
+        }
+        @keyframes fadeInDown {
+          from {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
     </section>
   );
 }
