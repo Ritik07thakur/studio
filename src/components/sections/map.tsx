@@ -1,6 +1,7 @@
 
 "use client";
 
+import Image from 'next/image';
 import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { MapPin } from 'lucide-react';
@@ -26,8 +27,15 @@ export function MapSection() {
             <AlertDescription>
               The Google Maps API key is not configured. Please set the NEXT_PUBLIC_GOOGLE_MAPS_API_KEY environment variable.
               You can add a placeholder image here or instructions for setting up the API key.
-              For now, a static placeholder image of a map could be displayed:
-              <img src="https://placehold.co/800x400.png?text=Map+Placeholder" alt="Map placeholder" data-ai-hint="map generic" className="mt-4 rounded-md shadow-md" />
+              For now, a static placeholder image of a map is displayed:
+              <Image 
+                src="https://placehold.co/800x400.png" 
+                alt="Map placeholder" 
+                data-ai-hint="map generic" 
+                width={800} 
+                height={400} 
+                className="mt-4 rounded-md shadow-md" 
+              />
             </AlertDescription>
           </Alert>
         </div>
