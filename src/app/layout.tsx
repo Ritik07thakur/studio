@@ -6,10 +6,10 @@ import { Footer } from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-
-const geistSans = GeistSans({
-  variable: '--font-geist-sans',
-});
+// Removed the incorrect function call:
+// const geistSans = GeistSans({
+//   variable: '--font-geist-sans',
+// });
 
 export const metadata: Metadata = {
   title: 'Churdhar Explorer - Your Guide to Churdhar Trek',
@@ -22,7 +22,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={geistSans.variable}>
+    <html lang="en" className={GeistSans.variable}> {/* Use imported GeistSans.variable directly */}
       <body className="antialiased">
         <Navbar />
         <main className="flex-grow">
