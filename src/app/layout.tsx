@@ -6,6 +6,7 @@ import { Navbar } from '@/components/layout/navbar';
 import { Footer } from '@/components/layout/footer';
 import { Toaster } from '@/components/ui/toaster';
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Chatbot } from '@/components/chatbot/chatbot'; // Import Chatbot
 
 export const metadata: Metadata = {
   title: 'Vistra - Your Guide to Churdhar Trek',
@@ -26,6 +27,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <Toaster />
+        <Chatbot /> {/* Add Chatbot here */}
         <SpeedInsights />
       </body>
     </html>
