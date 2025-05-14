@@ -1,45 +1,34 @@
+
 import Image from 'next/image';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { HomeIcon, Tent, Backpack, Tag } from 'lucide-react';
+import { HomeIcon, Backpack } from 'lucide-react'; // Removed Tent and Tag as they are not used with new items
 import type { RentalItem } from '@/lib/types';
 
 const rentalData: RentalItem[] = [
   {
-    id: '1',
-    name: 'Riverside Homestay',
-    type: 'Accommodation',
-    imageUrl: 'https://placehold.co/400x300.png',
-    imageHint: 'cozy cabin',
-    description: 'Comfortable rooms with stunning Churdhar views. Perfect for families and groups.',
-    price: '₹2500/night',
-  },
-  {
-    id: '2',
-    name: 'High Altitude Tents',
+    id: 'camp-bag-1',
+    name: 'Camping Bags',
     type: 'Gear',
-    imageUrl: 'https://placehold.co/400x300.png',
-    imageHint: 'camping gear',
-    description: 'Durable and weather-proof tents suitable for Churdhar\'s conditions. Sleeps 2-3.',
-    price: '₹800/day',
+    imageUrl: 'https://tse1.mm.bing.net/th?id=OIP.Q4bKDXEE31TXu01n1IUDdAHaE8&pid=Api&P=0&h=180',
+    imageHint: 'camping backpack',
+    description: 'Durable and spacious camping bags for all your trekking essentials.',
   },
   {
-    id: '3',
-    name: 'Trekking Poles & Backpacks',
+    id: 'camp-tent-1',
+    name: 'Camping Tents (Family Pack)',
     type: 'Gear',
-    imageUrl: 'https://placehold.co/400x300.png',
-    imageHint: 'hiking equipment',
-    description: 'Lightweight trekking poles and spacious backpacks for a comfortable trek.',
-    price: 'From ₹300/day',
+    imageUrl: 'https://tse2.mm.bing.net/th?id=OIP.d7XY9dkEMbG9o4bOWpCCVwHaGA&pid=Api&P=0&h=180',
+    imageHint: 'family tent',
+    description: 'Large family-sized tents, weather-resistant and easy to set up for a comfortable stay.',
   },
   {
-    id: '4',
-    name: 'Mountain View Guesthouse',
+    id: 'room-1',
+    name: 'Comfortable Rooms',
     type: 'Accommodation',
-    imageUrl: 'https://placehold.co/400x300.png',
-    imageHint: 'mountain guesthouse',
-    description: 'Budget-friendly guesthouse with basic amenities and friendly hosts.',
-    price: '₹1500/night',
+    imageUrl: 'https://tse3.mm.bing.net/th?id=OIP.sOGMz7z8onnxDAYxPPwLuwHaE7&pid=Api&P=0&h=180',
+    imageHint: 'cozy room',
+    description: 'Clean and cozy rooms available near trek starting points, offering a restful night.',
   },
 ];
 
@@ -49,51 +38,62 @@ const TypeIcon = ({ type }: { type: RentalItem['type'] }) => {
   return null;
 };
 
+const RentalCardItem = ({ item }: { item: RentalItem }) => (
+  <Card className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
+    <div className="relative h-56 w-full">
+      <Image
+        src={item.imageUrl}
+        alt={item.name}
+        data-ai-hint={item.imageHint}
+        fill
+        style={{ objectFit: 'cover' }}
+        sizes="(max-width: 640px) 80vw, (max-width: 768px) 72vw, (max-width: 1024px) 45vw, 30vw"
+      />
+    </div>
+    <CardHeader>
+      <CardTitle className="text-xl text-primary">{item.name}</CardTitle>
+      <div className="flex items-center text-sm text-muted-foreground pt-1">
+        <TypeIcon type={item.type} />
+        <span>{item.type}</span>
+      </div>
+    </CardHeader>
+    <CardContent className="flex-grow">
+      <CardDescription>{item.description}</CardDescription>
+    </CardContent>
+    <CardFooter>
+      <Button variant="default" size="sm" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+        Book Now
+      </Button>
+    </CardFooter>
+  </Card>
+);
+
 export function RentalsSection() {
   return (
     <section id="rentals" className="py-16 lg:py-24 bg-secondary/50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">Rentals & Stays</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">Rentals &amp; Stays</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Find the perfect accommodation and gear for your Churdhar adventure.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {rentalData.map((item) => (
-            <Card key={item.id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <div className="relative h-56 w-full">
-                <Image
-                  src={item.imageUrl}
-                  alt={item.name}
-                  data-ai-hint={item.imageHint}
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
+
+        {/* Mobile Slider */}
+        <div className="md:hidden">
+          <div className="flex overflow-x-auto space-x-4 pb-4 -mx-4 px-4 snap-x snap-mandatory">
+            {rentalData.map((item) => (
+              <div key={item.id + '-mobile'} className="snap-start flex-shrink-0 w-[280px] sm:w-[300px]">
+                <RentalCardItem item={item} />
               </div>
-              <CardHeader>
-                <CardTitle className="text-xl text-primary">{item.name}</CardTitle>
-                <div className="flex items-center text-sm text-muted-foreground pt-1">
-                  <TypeIcon type={item.type} />
-                  <span>{item.type}</span>
-                </div>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <CardDescription>{item.description}</CardDescription>
-              </CardContent>
-              <CardFooter className="flex justify-between items-center">
-                {item.price && (
-                  <div className="flex items-center text-primary font-semibold">
-                    <Tag className="h-4 w-4 mr-1 text-accent" />
-                    {item.price}
-                  </div>
-                )}
-                <Button variant="default" size="sm" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-                  View Details
-                </Button>
-              </CardFooter>
-            </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {rentalData.map((item) => (
+            <RentalCardItem key={item.id + '-desktop'} item={item} />
           ))}
         </div>
       </div>
