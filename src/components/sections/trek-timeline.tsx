@@ -34,7 +34,7 @@ const MilestoneCard = ({ milestone }: { milestone: typeof timelineMilestones[0] 
       <div className="p-4 bg-accent/20 rounded-full mb-4">
         <milestone.icon className="h-12 w-12 text-accent" />
       </div>
-      <CardTitle className="text-xl text-primary">{milestone.title}</CardTitle>
+      <CardTitle className="text-lg md:text-xl text-primary">{milestone.title}</CardTitle>
       <p className="text-sm text-muted-foreground">{milestone.subtitle}</p>
     </CardHeader>
     <CardContent className="flex-grow text-center">
@@ -49,7 +49,7 @@ export function TrekTimelineSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">Trek Route Timeline</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Journey to the Summit: Key Milestones of Your Churdhar Trek.
           </p>
         </div>

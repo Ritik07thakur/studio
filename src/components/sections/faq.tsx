@@ -55,7 +55,7 @@ export function FaqSection() {
           <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Find answers to common queries about the Churdhar trek.
           </p>
         </div>

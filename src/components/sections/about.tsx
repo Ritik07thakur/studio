@@ -40,7 +40,7 @@ export function AboutSection() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">About Churdhar</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto">
             Essential information for your Churdhar expedition.
           </p>
         </div>
@@ -49,7 +49,7 @@ export function AboutSection() {
             <Card key={point.title} className="shadow-lg hover:shadow-xl transition-shadow duration-300">
               <CardHeader className="flex flex-row items-center space-x-4 pb-2">
                 <point.icon className="h-10 w-10 text-accent" />
-                <CardTitle className="text-xl text-primary">{point.title}</CardTitle>
+                <CardTitle className="text-lg md:text-xl text-primary">{point.title}</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-foreground/80">{point.description}</p>
