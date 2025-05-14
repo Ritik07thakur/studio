@@ -1,11 +1,12 @@
+
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { MountainSnow, Sunrise, Backpack } from 'lucide-react'; // Replaced Hiking with Backpack
+import { MountainSnow, Sunrise, Backpack } from 'lucide-react'; 
 
 const timelineMilestones = [
   {
-    icon: Backpack, // Replaced Hiking with Backpack
+    icon: Backpack,
     title: 'The Ascent Begins',
     subtitle: 'Base Camp (e.g., Nauradhar)',
     description: 'Your adventure kicks off from the base camp. Prepare for a steady climb through lush forests and charming villages, with the crisp mountain air invigorating your senses.',
@@ -27,6 +28,21 @@ const timelineMilestones = [
   },
 ];
 
+const MilestoneCard = ({ milestone }: { milestone: typeof timelineMilestones[0] }) => (
+  <Card className={`shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full ${milestone.delay}`}>
+    <CardHeader className="flex flex-col items-center text-center pb-4">
+      <div className="p-4 bg-accent/20 rounded-full mb-4">
+        <milestone.icon className="h-12 w-12 text-accent" />
+      </div>
+      <CardTitle className="text-xl text-primary">{milestone.title}</CardTitle>
+      <p className="text-sm text-muted-foreground">{milestone.subtitle}</p>
+    </CardHeader>
+    <CardContent className="flex-grow text-center">
+      <p className="text-sm text-foreground/80">{milestone.description}</p>
+    </CardContent>
+  </Card>
+);
+
 export function TrekTimelineSection() {
   return (
     <section id="trek-timeline" className="py-16 lg:py-24 bg-background">
@@ -37,20 +53,22 @@ export function TrekTimelineSection() {
             Journey to the Summit: Key Milestones of Your Churdhar Trek.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        {/* Mobile Slider */}
+        <div className="md:hidden">
+          <div className="flex overflow-x-auto space-x-4 pb-4 -mx-4 px-4 snap-x snap-mandatory">
+            {timelineMilestones.map((milestone, index) => (
+              <div key={index + '-mobile'} className="snap-start flex-shrink-0 w-[280px] sm:w-[300px]">
+                <MilestoneCard milestone={milestone} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="hidden md:grid md:grid-cols-3 gap-8">
           {timelineMilestones.map((milestone, index) => (
-            <Card key={index} className={`shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col ${milestone.delay}`}>
-              <CardHeader className="flex flex-col items-center text-center pb-4">
-                <div className="p-4 bg-accent/20 rounded-full mb-4">
-                  <milestone.icon className="h-12 w-12 text-accent" />
-                </div>
-                <CardTitle className="text-xl text-primary">{milestone.title}</CardTitle>
-                <p className="text-sm text-muted-foreground">{milestone.subtitle}</p>
-              </CardHeader>
-              <CardContent className="flex-grow text-center">
-                <p className="text-sm text-foreground/80">{milestone.description}</p>
-              </CardContent>
-            </Card>
+            <MilestoneCard key={index + '-desktop'} milestone={milestone} />
           ))}
         </div>
       </div>
