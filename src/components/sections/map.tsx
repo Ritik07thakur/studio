@@ -1,3 +1,4 @@
+
 "use client";
 
 import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
@@ -14,9 +15,9 @@ export function MapSection() {
       <section id="map" className="py-16 lg:py-24 bg-secondary/50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">Explore Churdhar</h2>
+            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">Find Us</h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Visualize your trek and key locations.
+              Visualize your trek and key locations around Churdhar.
             </p>
           </div>
           <Alert variant="destructive" className="max-w-2xl mx-auto">
@@ -38,9 +39,9 @@ export function MapSection() {
     <section id="map" className="py-16 lg:py-24 bg-secondary/50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">Explore Churdhar</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4">Find Us</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Visualize your trek and key locations.
+            Visualize your trek and key locations around Churdhar.
           </p>
         </div>
         <div className="aspect-video w-full max-w-4xl mx-auto rounded-lg overflow-hidden shadow-2xl border border-border">
