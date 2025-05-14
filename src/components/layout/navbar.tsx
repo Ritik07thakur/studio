@@ -15,6 +15,7 @@ const navItems = [
   { href: '/#rentals', label: 'Rentals' },
   { href: '/#map', label: 'Map' },
   { href: '/#reviews', label: 'Reviews' },
+  { href: '/#faq', label: 'FAQ' },
   { href: '/#contact', label: 'Contact' },
 ];
 

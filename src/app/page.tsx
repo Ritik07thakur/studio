@@ -5,6 +5,7 @@ import { AboutSection } from '@/components/sections/about';
 import { TrekTimelineSection } from '@/components/sections/trek-timeline';
 import { MapSection } from '@/components/sections/map';
 import { ReviewsSection } from '@/components/sections/reviews';
+import { FaqSection } from '@/components/sections/faq';
 
 export default function HomePage() {
   return (
@@ -15,6 +16,7 @@ export default function HomePage() {
       <TrekTimelineSection />
       <MapSection />
       <ReviewsSection />
+      <FaqSection />
     </>
   );
 }
