@@ -11,10 +11,11 @@ import { cn } from '@/lib/utils';
 const navItems = [
   { href: '/#hero', label: 'Home' },
   { href: '/#about', label: 'About' },
+  { href: '/#trek-timeline', label: 'Timeline' },
   { href: '/#rentals', label: 'Rentals' },
-  { href: '/#reviews', label: 'Reviews' },
   { href: '/#map', label: 'Map' },
-  { href: '/#contact', label: 'Contact' }, // Added Contact link
+  { href: '/#reviews', label: 'Reviews' },
+  { href: '/#contact', label: 'Contact' },
 ];
 
 export function Navbar() {
